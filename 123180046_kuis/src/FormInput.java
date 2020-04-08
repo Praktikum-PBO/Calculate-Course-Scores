@@ -130,9 +130,9 @@ public class FormInput extends JFrame {
                     // validasi setiap komponen
                     validateData(NIM, name, courses1, score1, courses2, score2);
                     convert.convertData(NIM, name, courses1, score1, courses2, score2);
-                } catch (Error exception1) {
+                } catch (Error exception1) { // Menangkap error ketika input ada yang kosong dan input score tidak mencakup 1-100
                     lException.setText(String.valueOf(exception1));
-                } catch (NumberFormatException exception2) {
+                } catch (NumberFormatException exception2) { // menangkap error dari NumberFormatException score 1 dan score 2
                     lException.setText("Error : Please enter numbers for Score");
                 }
             }
@@ -159,10 +159,8 @@ public class FormInput extends JFrame {
         if (!(NIM.length() > 0 && name.length() > 0 && courses1.length() > 0 && score1.length() > 0 && courses2.length() > 0 && score2.length() > 0)) {
             throw new Error("          input cannot be empty");
         } // ketika nilai score tidak mencakup 1-100 akanmasuk else if
-        else if (!((Float.parseFloat(score1)) <= 0 && (Float.parseFloat(score1)) >= 100 && (Float.parseFloat(score2)) <= 0 && (Float.parseFloat(score2)) >= 100)) {
+        else if (!((Float.parseFloat(score1)) >= 0 && (Float.parseFloat(score1)) <= 100 && (Float.parseFloat(score2)) >= 0 && (Float.parseFloat(score2)) <= 100)) {
             throw new Error("Enter numbers (1-100) for Score");
-        } else {
-            throw new Error("");
         }
     }
 }
