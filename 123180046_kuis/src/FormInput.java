@@ -130,6 +130,7 @@ public class FormInput extends JFrame {
                     // validasi setiap komponen
                     validateData(NIM, name, courses1, score1, courses2, score2);
                     convert.convertData(NIM, name, courses1, score1, courses2, score2);
+                    lException.setText("");
                 } catch (Error exception1) { // Menangkap error ketika input ada yang kosong dan input score tidak mencakup 1-100
                     lException.setText(String.valueOf(exception1));
                 } catch (NumberFormatException exception2) { // menangkap error dari NumberFormatException score 1 dan score 2
@@ -149,6 +150,7 @@ public class FormInput extends JFrame {
                 tfScore1.setText("");
                 tfCourses2.setText("");
                 tfScore2.setText("");
+                lException.setText("");
             }
         });
     }
